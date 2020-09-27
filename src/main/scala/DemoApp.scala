@@ -3,7 +3,7 @@ object DemoApp extends App {
 
   println(s"HELLO\t$appName")
 
-  val json = DemoLogic.process("23")
+  val json = DemoLogic.process("23") // <-- put itemId here
   println(json)
 
   println(s"BYE\t$appName")
