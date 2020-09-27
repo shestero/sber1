@@ -20,7 +20,7 @@ object DemoLogic extends Spark(DemoApp.appName) {
 
   def hist(name: String): DataFrame => DataFrame =
     spark
-      .range(1, 6)
+      .range(1, 6) // top range is exclusive
       .withColumnRenamed("id", "rating")
       .join(_, Seq("rating"), "left")
       .agg(collect_list(struct("rating", "cnt")).alias("extcnt"))
