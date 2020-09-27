@@ -10,8 +10,6 @@ class Spark(app: String, master: String = "local[*]") {
     .setMaster(master)
     .setAppName(app)
 
-  //val sparkContext = new SparkContext(conf)
-
   val spark: SparkSession = SparkSession
     .builder()
     .config(conf)
@@ -19,9 +17,6 @@ class Spark(app: String, master: String = "local[*]") {
 
   val sc: SparkContext = spark.sparkContext
   sc.setLogLevel("WARN")
-  //val sqlContext = spark.sqlContext // new org.apache.spark.sql.SQLContext(sc)
-
-  import spark.implicits._
 
   // For access to [local] file system
   val hadoopConfig: Configuration = spark.sparkContext.hadoopConfiguration
